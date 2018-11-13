@@ -51,7 +51,7 @@ namespace Valve.VR.InteractionSystem
 		public UnityEvent onDetachFromHand;
 
 		public bool snapAttachEaseInCompleted = false;
-        
+
         protected RigidbodyInterpolation hadInterpolation = RigidbodyInterpolation.None;
 
         protected new Rigidbody rigidbody;
@@ -125,7 +125,7 @@ namespace Valve.VR.InteractionSystem
         protected virtual void HandHoverUpdate( Hand hand )
         {
             GrabTypes startingGrabType = hand.GetGrabStarting();
-            
+
             if (startingGrabType != GrabTypes.None)
             {
 				hand.AttachObject( gameObject, startingGrabType, attachmentFlags, attachmentOffset );
@@ -145,9 +145,9 @@ namespace Valve.VR.InteractionSystem
 			onPickUp.Invoke();
 
 			hand.HoverLock( null );
-            
+
             rigidbody.interpolation = RigidbodyInterpolation.None;
-            
+
 		    velocityEstimator.BeginEstimatingVelocity();
 
 			attachTime = Time.time;
@@ -171,7 +171,7 @@ namespace Valve.VR.InteractionSystem
             onDetachFromHand.Invoke();
 
             hand.HoverUnlock(null);
-            
+
             rigidbody.interpolation = hadInterpolation;
 
             Vector3 velocity;
@@ -202,9 +202,9 @@ namespace Valve.VR.InteractionSystem
                     break;
                 default:
                 case ReleaseStyle.NoChange:
-                    velocity = rigidbody.velocity;
-                    angularVelocity = rigidbody.angularVelocity;
-                    break;
+										velocity = new Vector3(0.0f, 0.0f, 0.0f);
+										angularVelocity = new Vector3(0.0f, 0.0f, 0.0f);
+										break;
             }
 
             if (releaseVelocityStyle != ReleaseStyle.NoChange)

@@ -14,14 +14,27 @@ namespace RosSharp.RosBridgeClient
         public GameObject left_clutch;
         public GameObject right_clutch;
 
+
+        /*
+        private Quaternion blue_left_end_rot
+        private Quaternion
+
+        private Vector3
+        private Vector3
+
+        private Quaternion
+        private Quaternion
+
+        private Vector3
+        private Vector3
+        */
+
         // Use this for initialization
         void Start()
         {
             /* Initializes baselink unity controllers o simulation's initial position
              Can be changed in the future to initialize to robot's actual initial position from subscription*/
 
-
-       
             transformConversion();
 
         }
@@ -44,11 +57,11 @@ namespace RosSharp.RosBridgeClient
             //****************************
 
 
-            Quaternion blue_left_init_orientation = new Quaternion(0.24684f, 0.29046f, 0.92122f, -0.077833f); 
-            Vector3 blue_left_init_pos = new Vector3(-0.01400f, 0.11289f, 0.0f); 
+            Quaternion blue_left_init_orientation = new Quaternion(0.24684f, 0.29046f, 0.92122f, -0.077833f);
+            Vector3 blue_left_init_pos = new Vector3(-0.01400f, 0.11289f, 0.0f);
 
-            Quaternion blue_right_init_orientation = new Quaternion(0.24684f, -0.29046f, 0.92122f, 0.077833f); 
-            Vector3 blue_right_init_pos = new Vector3(-0.01400f, -0.11289f, 0.0f); 
+            Quaternion blue_right_init_orientation = new Quaternion(0.24684f, -0.29046f, 0.92122f, 0.077833f);
+            Vector3 blue_right_init_pos = new Vector3(-0.01400f, -0.11289f, 0.0f);
 
             blue_left_init_orientation = blue_left_init_orientation.Ros2Unity();
             blue_right_init_orientation = blue_right_init_orientation.Ros2Unity();
@@ -66,5 +79,3 @@ namespace RosSharp.RosBridgeClient
     }
 
 }
-
-
