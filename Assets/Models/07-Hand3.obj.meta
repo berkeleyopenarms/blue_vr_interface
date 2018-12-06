@@ -8,6 +8,7 @@ ModelImporter:
     400000: //RootNode
     400002: <STL_BINARY>
     2100000: DefaultMaterial
+    2100002: _STL_BINARY_Mat
     2300000: <STL_BINARY>
     3300000: <STL_BINARY>
     4300000: <STL_BINARY>

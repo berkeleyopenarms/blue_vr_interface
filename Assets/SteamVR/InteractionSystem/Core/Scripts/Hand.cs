@@ -1052,9 +1052,11 @@ namespace Valve.VR.InteractionSystem
         }
 
         protected const float MaxVelocityChange = 10f;
+        protected const float MinVelocityChange = 0.05f;
         protected const float VelocityMagic = 6000f;
         protected const float AngularVelocityMagic = 50f;
         protected const float MaxAngularVelocityChange = 20f;
+        protected const float MinAngularVelocityChange = 0.05f;
 
         protected void UpdateAttachedVelocity(AttachedObject attachedObjectInfo)
         {

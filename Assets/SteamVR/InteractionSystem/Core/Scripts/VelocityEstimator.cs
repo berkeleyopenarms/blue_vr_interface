@@ -137,6 +137,9 @@ namespace Valve.VR.InteractionSystem
 				// Estimate linear velocity
 				velocitySamples[v] = velocityFactor * ( transform.position - previousPosition );
 
+                Debug.Log("linear");
+                Debug.Log(	velocitySamples[v]);
+
 				// Estimate angular velocity
 				Quaternion deltaRotation = transform.rotation * Quaternion.Inverse( previousRotation );
 
@@ -154,7 +157,11 @@ namespace Valve.VR.InteractionSystem
 
 				angularVelocitySamples[w] = angularVelocity;
 
-				previousPosition = transform.position;
+                Debug.Log("Angular");
+                Debug.Log(angularVelocitySamples[w]);
+
+
+                previousPosition = transform.position;
 				previousRotation = transform.rotation;
 			}
 		}

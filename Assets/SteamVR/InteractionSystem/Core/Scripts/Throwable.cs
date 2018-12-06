@@ -47,6 +47,11 @@ namespace Valve.VR.InteractionSystem
         protected Quaternion attachRotation;
         protected Transform attachEaseInTransform;
 
+        /* These colliders will be used to prevent the hands, head, and potentially other objects form hitting the grippers in the scene*/
+        public Collider headCollider;
+        public Collider leftGripper;
+        public Collider rightGripper;
+
 		public UnityEvent onPickUp;
 		public UnityEvent onDetachFromHand;
 
@@ -63,7 +68,11 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         protected virtual void Awake()
 		{
-			velocityEstimator = GetComponent<VelocityEstimator>();
+            Physics.IgnoreCollision(headCollider, leftGripper);
+            Physics.IgnoreCollision(headCollider, rightGripper);
+            Physics.IgnoreCollision(rightGripper, leftGripper);
+
+            velocityEstimator = GetComponent<VelocityEstimator>();
             interactable = GetComponent<Interactable>();
 
 			if ( attachEaseIn )
