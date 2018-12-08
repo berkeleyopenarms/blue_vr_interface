@@ -25,6 +25,9 @@ namespace RosSharp.RosBridgeClient
 
         private Messages.Geometry.PoseStamped message;
 
+        private Messages.Geometry.Point geometryPoint = new Messages.Geometry.Point();
+        private Messages.Geometry.Quaternion geometryQuaternion = new Messages.Geometry.Quaternion();
+
         protected override void Start()
         {
             base.Start();
@@ -62,7 +65,7 @@ namespace RosSharp.RosBridgeClient
 
         private Messages.Geometry.Point GetGeometryPoint(Vector3 position)
         {
-            Messages.Geometry.Point geometryPoint = new Messages.Geometry.Point();
+            //Messages.Geometry.Point geometryPoint = new Messages.Geometry.Point();
             geometryPoint.x = position.x;
             geometryPoint.y = position.y;
             geometryPoint.z = position.z;
@@ -71,7 +74,7 @@ namespace RosSharp.RosBridgeClient
 
         private Messages.Geometry.Quaternion GetGeometryQuaternion(Quaternion quaternion)
         {
-            Messages.Geometry.Quaternion geometryQuaternion = new Messages.Geometry.Quaternion();
+           // Messages.Geometry.Quaternion geometryQuaternion = new Messages.Geometry.Quaternion();
             geometryQuaternion.x = quaternion.x;
             geometryQuaternion.y = quaternion.y;
             geometryQuaternion.z = quaternion.z;
