@@ -36,6 +36,7 @@ public class menuManagement : MonoBehaviour {
             menu.active = !menu.active;
             frameStore = Time.frameCount;
         }
+  
     }
 
     // Set the global transform of the clutch to be the transform of the player plus a fixed transform
@@ -44,7 +45,7 @@ public class menuManagement : MonoBehaviour {
         Debug.Log("center clutch under player");
         //Ensuring to only move in 
         //move position in XY plane
-        clutch.transform.position = new Vector3(vrCamera.transform.position.x - offset.x, vrCamera.transform.position.y - 0.82f, vrCamera.transform.position.z - offset.z);
+        clutch.transform.position = new Vector3(vrCamera.transform.position.x - offset.x, vrCamera.transform.position.y - 0.57f, vrCamera.transform.position.z - offset.z);
 
         //Moving rotation in Y direction only
         clutch.transform.rotation = Quaternion.Euler(0, vrCamera.transform.localEulerAngles.y, 0);
