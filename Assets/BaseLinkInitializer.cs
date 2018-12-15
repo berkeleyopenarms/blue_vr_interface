@@ -55,6 +55,9 @@ namespace RosSharp.RosBridgeClient
 
             left_baselink.transform.localRotation = blue_left_init_orientation;
             right_baselink.transform.localRotation = blue_right_init_orientation;
+            right_baselink.transform.localEulerAngles = new Vector3(0.0f, right_baselink.transform.localEulerAngles.y, 0.0f);
+
+
         }
 
     }
