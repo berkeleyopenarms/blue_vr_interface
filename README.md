@@ -18,47 +18,36 @@ The below directions are for VR interface which works with the full blue URDF.
 An alternative branch will be created for the mobile Windows Mixed Reality setup. This has some minor additions which are not currently documented here.
 
 ## Technical Details
-
-  INSERT HIERARCHY IMAGE HERE
  
-<ul>
-<li>Let’s break down the hierarchy first:</li>
-<ul>
-<li> Note: if you see something in your version of the hierarchy that isn’t represented below, then it is not important in this version and likely can be ignored plus disabled.</li>
-<li> RosConnector: </li>
-<ul>
-<li> This is where all ROS# operations occur and is where the ROS nodes communicate with the Unity objects.</li>
-<li> Refer to the ROS# documentation for how this is all working. I highly recommend going through the tutorials.   </li>
-</ul>
-<li> RsProcessingPipe: </li>
-<ul>
-<li> This is where the processing of the RealSense point cloud occurs.   </li>
-</ul>
-<li> MenuManagementObject: </li>
-<ul>
-<li> This object controls the functionality of the menu system with its attached script. This is explained more in the scripts section below.
-</li>
-</ul>
-<li> ViveCameraRig: </li>
-<ul>
-<li> This is the object that integrates with the Vive Trackers and allows them to be in the scene. </li>
-</ul>
-<li> Player: </li>
-  INSERT PLAYER IMAGE HERE
-<ul>
-<li> The Player object contains much of the default SteamVR objects in addition to much of the teleoperation interface.  </li>
-<li> Under the left hand, the RobotHandCanvas is where all of the buttons on the menu are displayed. These buttons are linked to functions written in the MenuManagement object. </li>
-<li> The Clutch contain much of the scene which controls the teleoperation. </li>
-<ul>
-<li> The left and right baselink frames contain left and right gripper models under them. The BaseLinkInitializer script attached to the Clutch has hardcoded transforms which it uses to initialize the relative transform between the baselinks and grippers.  </li>
-<li> The RsDevice represents the RealSense.  </li>
-<li> The canvas represents a Unity canvas which is used to project the RealSense camera stream onto.  </li>
-<li> blue_full represents the URDF of the entire blue robotic manipulator.   </li>
-</ul>
-</ul>
-</ul>
-</li>
-</ul>
+ Let’s break down the hierarchy first:
+ 
+ ![Optional Text](img/hierarchy.png)
+ 
+ Note: if you see something in your version of the hierarchy that isn’t represented below, then it is not important in this version and likely can be ignored plus disabled.
+ 
+RosConnector:
+- This is where all ROS# operations occur and is where the ROS nodes communicate with the Unity objects.
+- Refer to the ROS# documentation for how this is all working. I highly recommend going through the tutorials.  
+ 
+RsProcessingPipe: 
+- This is where the processing of the RealSense point cloud occurs.  
+ 
+MenuManagementObject:
+- This object controls the functionality of the menu system with its attached script. This is explained more in the scripts section below.
+
+ViveCameraRig:
+-  This is the object that integrates with the Vive Trackers and allows them to be in the scene.
+
+ ![Optional Text](img/player.png)
+
+
+Player:
+- The Player object contains much of the default SteamVR objects in addition to much of the teleoperation interface.
+- Under the left hand, the RobotHandCanvas is where all of the buttons on the menu are displayed. These buttons are linked to functions written in the MenuManagement object.
+- The left and right baselink frames contain left and right gripper models under them. The BaseLinkInitializer script attached to the Clutch has hardcoded transforms which it uses to initialize the relative transform between the baselinks and grippers.
+- The RsDevice represents the RealSense. 
+- The canvas represents a Unity canvas which is used to project the RealSense camera stream onto. 
+- blue_full represents the URDF of the entire blue robotic manipulator.  
 
 ### Scripts
 
