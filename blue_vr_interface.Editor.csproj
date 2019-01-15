@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DD6F428B-6FD7-D396-848D-F082A772A183}</ProjectGuid>
+    <ProjectGuid>{5BBFBD47-DF39-AD37-1F91-A9220E87C525}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>RealSense.dll</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor.dll</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <TargetFrameworkProfile></TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.2.15f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -166,6 +166,9 @@
     <Reference Include="Managed/UnityEngine/UnityEngine.SharedInternalsModule">
       <HintPath>C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
     </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SpatialTrackingModule">
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll</HintPath>
+    </Reference>
     <Reference Include="Managed/UnityEngine/UnityEngine.SpriteMaskModule">
       <HintPath>C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
     </Reference>
@@ -258,6 +261,15 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Timeline">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
@@ -684,26 +696,119 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsAlign.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsColorizer.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsDecimationFilter.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsDepthPrecision.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsHoleFillingFilter.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsPointCloud.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsSpatialFilter.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\ProcessingBlocks\RsTemporalFilter.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsARBackgroundRenderer.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsConfiguration.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsDevice.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsDevice2.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsDeviceInspector.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsPointCloudRenderer.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsPointCloudRenderer2.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsProcessingBlock.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsProcessingPipe.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsStreamTextureRenderer.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsStreamTextureRenderer2.cs" />
-    <Compile Include="Assets\RealSenseSDK2.0\Scripts\RsVideoStreamRequest.cs" />
+    <ProjectReference Include="blue_vr_interface.csproj">
+      <Project>{4C79915B-096D-7094-52D6-443D466542C0}</Project>
+      <Name>blue_vr_interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.StandardEvents.csproj">
+      <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
+      <Name>UnityEditor.StandardEvents</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{3A848AB7-9891-EDDA-D555-BF184C2F81F4}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PackageManagerUI.Editor.csproj">
+      <Project>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</Project>
+      <Name>Unity.PackageManagerUI.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Utils.csproj">
+      <Project>{68C62501-6114-1E74-C71D-76A574D6B834}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="RealSense.csproj">
+      <Project>{DD6F428B-6FD7-D396-848D-F082A772A183}</Project>
+      <Name>RealSense</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{07A21C90-D344-AE1A-8456-9910C203B41A}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\HTC.UnityPlugin\PoseTracker\Editor\PoseEaserEditor.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\PoseTracker\Editor\PoseFreezerEditor.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\Utility\Attribute\Editor\CustomOrderedEnumAttributeDrawer.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\Utility\Attribute\Editor\FlagsFromEnumAttributeDrawer.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\ViveInputUtility\Scripts\Editor\VIUProjectSettings.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\ViveInputUtility\Scripts\Editor\VIUSettingsEditor.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\ViveInputUtility\Scripts\Editor\VIUVersionCheck.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\ViveInputUtility\Scripts\Misc\Editor\RenderModelHookEditor.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\ViveInputUtility\Scripts\ViveInput\Editor\ViveInputVirtualButtonEditor.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\ViveInputUtility\Scripts\ViveRole\Editor\ViveRolePropertyDrawer.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\ViveInputUtility\Scripts\ViveRole\Editor\ViveRoleSetterEditor.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\VRModule\Editor\VRModuleManagerEditor.cs" />
+    <Compile Include="Assets\HTC.UnityPlugin\VRModule\Modules\Editor\UnityEngineVRModuleEditor.cs" />
+    <Compile Include="Assets\RealSenseSDK2.0\Editor\DefaultStreamPropertyDrawer.cs" />
+    <Compile Include="Assets\RealSenseSDK2.0\Editor\RsDeviceEditor.cs" />
+    <Compile Include="Assets\RealSenseSDK2.0\Editor\RsDeviceInspectorEditor.cs" />
+    <Compile Include="Assets\RealSenseSDK2.0\Editor\Tests\NewPlayModeTest.cs" />
+    <Compile Include="Assets\RealSenseSDK2.0\Misc\Editor\CreateAssetBundles.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\Editor\JointStatePatcherEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\Editor\TransferFromRosEditorWindow.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\Editor\TransferFromRosHandler.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\Editor\TransferToRosEditorWindow.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\Editor\TransferToRosHandler.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\AssetHandlers\LocateAssetHandler.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\AssetHandlers\UrdfAssetPathHandler.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\AssetHandlers\UrdfExportPathHandler.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\AssetHandlers\UrdfMeshExportHandler.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\HingeJointLimitsManagerEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\RigidbodyEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfCollisionEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfCollisionsEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfInertialEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfJointEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfLinkEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfPluginsEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfRobotEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfVisualEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\CustomEditors\UrdfVisualsEditor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MenuItems\UrdfExportEditorWindow.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MenuItems\UrdfImporterContextMenuItem.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MenuItems\UrdfImporterMenuItem.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MenuItems\UrdfRobotCreatorMenuItem.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MeshProcessing\ColladaAssetPostProcessor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MeshProcessing\StlAssetPostProcessor.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MeshProcessing\StlExporter.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MeshProcessing\StlImporter.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MeshProcessing\StlReader.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\MeshProcessing\StlWriter.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfCollisionExtensions.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfCollisionsExtensions.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfGeometry.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfGeometryCollision.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfGeometryVisual.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfLinkExtensions.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfMaterial.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfRobotExtensions.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfVisualExtensions.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfVisualsExtensions.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_Editor.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_Preferences.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_RenderModelEditor.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_Settings.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_SkyboxEditor.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_UnitySettingsWindow.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_Update.cs" />
+    <Compile Include="Assets\SteamVR\Editor\SteamVR_UpdateModeEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_CopyExampleInputFiles.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Boolean_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_GenericPropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_In_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Out_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Pose_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Single_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Skeleton_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector2_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector3_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vibration_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_ActionSetPropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_EditorWindow.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Generator.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_LiveWindow.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_PostProcessBuild.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HTC.UnityPlugin\ViveInputUtility\Resources\Unlit-AlphaWithFade.shader" />
