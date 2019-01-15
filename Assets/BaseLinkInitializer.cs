@@ -14,21 +14,6 @@ namespace RosSharp.RosBridgeClient
         public GameObject left_clutch;
         public GameObject right_clutch;
 
-
-        /*
-        private Quaternion blue_left_end_rot
-        private Quaternion
-
-        private Vector3
-        private Vector3
-
-        private Quaternion
-        private Quaternion
-
-        private Vector3
-        private Vector3
-        */
-
         // Use this for initialization
         void Start()
         {
@@ -36,12 +21,10 @@ namespace RosSharp.RosBridgeClient
              Can be changed in the future to initialize to robot's actual initial position from subscription*/
 
             transformConversion();
-
         }
 
         void transformConversion()
         {
-
             Quaternion blue_left_end_rot = new Quaternion(0.0f, 0.0f, -0.70712f, 0.7071f);
             Vector3 blue_left_end_pos = new Vector3(-0.022845f, -0.011566f, 1.000f);
 
@@ -53,8 +36,6 @@ namespace RosSharp.RosBridgeClient
 
             left_clutch.transform.localRotation = blue_left_end_rot.Ros2Unity();
             right_clutch.transform.localRotation = blue_right_end_rot.Ros2Unity();
-
-            //****************************
 
 
             Quaternion blue_left_init_orientation = new Quaternion(0.24684f, 0.29046f, 0.92122f, -0.077833f);
@@ -74,6 +55,9 @@ namespace RosSharp.RosBridgeClient
 
             left_baselink.transform.localRotation = blue_left_init_orientation;
             right_baselink.transform.localRotation = blue_right_init_orientation;
+            right_baselink.transform.localEulerAngles = new Vector3(0.0f, right_baselink.transform.localEulerAngles.y, 0.0f);
+
+
         }
 
     }

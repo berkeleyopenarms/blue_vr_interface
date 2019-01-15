@@ -66,6 +66,7 @@
     <Compile Include="Assets\DebugMenuManager.cs" />
     <Compile Include="Assets\EndEffectorPublisher.cs" />
     <Compile Include="Assets\EndEffectorSubscriber.cs" />
+    <Compile Include="Assets\GripperPublisher.cs" />
     <Compile Include="Assets\HTC.UnityPlugin\ColliderEvent\ColliderEventCaster.cs" />
     <Compile Include="Assets\HTC.UnityPlugin\ColliderEvent\ColliderEventData.cs" />
     <Compile Include="Assets\HTC.UnityPlugin\ColliderEvent\ColliderEventInterfaces.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Assets\menuManagement.cs" />
     <Compile Include="Assets\RosSharp\Scripts\Extensions\StandardHeaderExtensions.cs" />
     <Compile Include="Assets\RosSharp\Scripts\Extensions\TransformExtensions.cs" />
+    <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\Float32.cs" />
     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JointStatePatcher.cs" />
     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JointStateReader.cs" />
     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JointStateWriter.cs" />
@@ -414,6 +416,8 @@
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
     <Compile Include="Assets\ViveInput.cs" />
     <Compile Include="Assets\VRControllerInput.cs" />
+    <None Include="Assets\blue_dexnet\CMakeLists.txt" />
+    <None Include="Assets\blue_dexnet\package.xml" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />
