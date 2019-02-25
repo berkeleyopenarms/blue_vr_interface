@@ -14,16 +14,20 @@ public class menuManagement : MonoBehaviour {
     public GameObject clutch;
     public GameObject menu;
     public GameObject blueUrdf;
+    public GameObject rightGripper;
 
     public blueInputSystem leftHandInputs;
     public blueInputSystem rightHandInputs;
 
     private Vector3 offset;
     private int frameStore;
+    private bool summon;
+
 	// Use this for initialization
 	void Start () {
         offset = new Vector3(0.3f, 0.7f, 0.0f);
         frameStore = Time.frameCount;
+        summon = false;
     }
 	
 	// Update is called once per frame
@@ -35,6 +39,12 @@ public class menuManagement : MonoBehaviour {
         {
             menu.active = !menu.active;
             frameStore = Time.frameCount;
+        }
+
+        if (rightHandInputs.getGrip())
+        {
+            Debug.Log("Here!");
+            summonRightClutch();
         }
     }
 
@@ -48,6 +58,27 @@ public class menuManagement : MonoBehaviour {
 
         //Moving rotation in Y direction only
         clutch.transform.rotation = Quaternion.Euler(0, vrCamera.transform.localEulerAngles.y, 0);
+    }
+
+
+    public void summonRightClutch()
+    {
+        //Check to make sure that proper function is called
+        Debug.Log("Summoning Right Clutch");
+
+        if (summon == false)
+        {
+            float x = rightHandInputs.getControllerPosition().x;
+            float y = rightHandInputs.getControllerPosition().y;
+            float z = rightHandInputs.getControllerPosition().z;
+            Vector3 controllerPos = new Vector3(x, y, z);
+            Debug.Log(controllerPos);
+            rightGripper.transform.position = controllerPos;
+            summon = true;
+        } else
+        {
+            summon = false;
+        }
     }
 
     public void toggleUrdf()

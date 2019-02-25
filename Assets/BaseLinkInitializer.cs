@@ -43,10 +43,14 @@ namespace RosSharp.RosBridgeClient
         {
 
             Quaternion blue_left_end_rot = new Quaternion(0.0f, 0.0f, -0.70712f, 0.7071f);
-            Vector3 blue_left_end_pos = new Vector3(-0.022845f, -0.011566f, 1.000f);
+            //Vector3 blue_left_end_pos = new Vector3(0.0f, 0.0f, 0.0f);
+            //Vector3 blue_left_end_pos = new Vector3(-0.022845f, -0.011566f, 1.000f);
+            Vector3 blue_left_end_pos = new Vector3(-0.012845f, -0.011566f, 1.000f);
 
             Quaternion blue_right_end_rot = new Quaternion(0.0f, 0.0f, -0.70712f, 0.7071f);
-            Vector3 blue_right_end_pos = new Vector3(-0.022845f, -0.011566f, 1.0195f);
+            //Vector3 blue_right_end_pos = new Vector3(0.0f, 0.0f, 0.0f);
+            Vector3 blue_right_end_pos = new Vector3(-0.06500053f, 0.08899984f, 0.8890002f);
+            //Vector3 blue_right_end_pos = new Vector3(-0.022845f, -0.011566f, 1.0195f);
 
             left_clutch.transform.localPosition = blue_left_end_pos.Ros2Unity();
             right_clutch.transform.localPosition = blue_right_end_pos.Ros2Unity();
@@ -58,10 +62,13 @@ namespace RosSharp.RosBridgeClient
 
 
             Quaternion blue_left_init_orientation = new Quaternion(0.24684f, 0.29046f, 0.92122f, -0.077833f);
-            Vector3 blue_left_init_pos = new Vector3(-0.01400f, 0.11289f, 0.0f);
+            Vector3 blue_left_init_pos = new Vector3(0.0f, 0.0f, 0.0f);
+            //Vector3 blue_left_init_pos = new Vector3(-0.01400f, 0.11289f, 0.0f);
 
             Quaternion blue_right_init_orientation = new Quaternion(0.24684f, -0.29046f, 0.92122f, 0.077833f);
-            Vector3 blue_right_init_pos = new Vector3(-0.01400f, -0.11289f, 0.0f);
+            Vector3 blue_right_init_pos = new Vector3(0.0f, 0.0f, 0.0f);
+            //Vector3 blue_right_init_pos = new Vector3(-0.116f, 0.881f, -0.0009999871f);
+            //Vector3 blue_right_init_pos = new Vector3(-0.01400f, -0.11289f, 0.0f);
 
             blue_left_init_orientation = blue_left_init_orientation.Ros2Unity();
             blue_right_init_orientation = blue_right_init_orientation.Ros2Unity();
