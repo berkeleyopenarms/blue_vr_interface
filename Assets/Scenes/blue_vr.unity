@@ -2802,7 +2802,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1386080421}
+    m_TransformParent: {fileID: 444237361}
     m_Modifications:
     - target: {fileID: 1793845239529644, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_Name
@@ -2818,15 +2818,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.07014703
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2838,15 +2838,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalScale.x
@@ -2862,7 +2862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176574652035372, guid: f3af0287efac67d40b111b22d3e9387a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 54427001558166580, guid: f3af0287efac67d40b111b22d3e9387a,
         type: 3}
@@ -6506,6 +6506,7 @@ GameObject:
   - component: {fileID: 250032778}
   - component: {fileID: 250032777}
   - component: {fileID: 250032776}
+  - component: {fileID: 250032781}
   m_Layer: 9
   m_Name: right_elbow_lift_link
   m_TagString: Untagged
@@ -6641,6 +6642,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &250032781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250032773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &250266244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11840,6 +11853,7 @@ GameObject:
   - component: {fileID: 444237365}
   - component: {fileID: 444237364}
   - component: {fileID: 444237363}
+  - component: {fileID: 444237368}
   m_Layer: 9
   m_Name: left_wrist_lift_link
   m_TagString: Untagged
@@ -11861,6 +11875,7 @@ Transform:
   - {fileID: 261332879}
   - {fileID: 1426955233}
   - {fileID: 1938491551}
+  - {fileID: 120824263}
   m_Father: {fileID: 1780767218}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11975,6 +11990,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &444237368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444237360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &446228316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13464,6 +13491,7 @@ GameObject:
   - component: {fileID: 493017732}
   - component: {fileID: 493017731}
   - component: {fileID: 493017730}
+  - component: {fileID: 493017735}
   m_Layer: 9
   m_Name: right_shoulder_lift_link
   m_TagString: Untagged
@@ -13599,6 +13627,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &493017735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493017727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &493655978
 GameObject:
   m_ObjectHideFlags: 0
@@ -14233,7 +14273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timeout: 10
   Protocol: 1
-  RosBridgeServerUrl: ws://hekate.cs.berkeley.edu:9090
+  RosBridgeServerUrl: ws://192.168.103:9090
 --- !u!114 &518027292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14278,8 +14318,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Topic: /joint_states
   TimeStep: 0
-  JointNames: []
-  JointStateWriters: []
+  JointNames:
+  - left_base_roll_joint
+  - left_shoulder_lift_joint
+  - left_shoulder_roll_joint
+  - left_elbow_lift_joint
+  - left_elbow_roll_joint
+  - left_wrist_lift_joint
+  - left_wrist_roll_joint
+  - left_gripper_joint
+  - right_base_roll_joint
+  - right_shoulder_lift_joint
+  - right_shoulder_roll_joint
+  - right_elbow_lift_joint
+  - right_elbow_roll_joint
+  - right_wrist_lift_joint
+  - right_wrist_roll_joint
+  - right_gripper_joint
+  JointStateWriters:
+  - {fileID: 1847224692}
+  - {fileID: 1675394709}
+  - {fileID: 1354339167}
+  - {fileID: 1421524409}
+  - {fileID: 1780767225}
+  - {fileID: 444237368}
+  - {fileID: 1938491558}
+  - {fileID: 1275118348}
+  - {fileID: 1618889521}
+  - {fileID: 493017735}
+  - {fileID: 745861352}
+  - {fileID: 250032781}
+  - {fileID: 1032146715}
+  - {fileID: 1260645614}
+  - {fileID: 860127059}
+  - {fileID: 1721669127}
 --- !u!114 &518027295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19639,6 +19711,7 @@ GameObject:
   - component: {fileID: 745861349}
   - component: {fileID: 745861348}
   - component: {fileID: 745861347}
+  - component: {fileID: 745861352}
   m_Layer: 9
   m_Name: right_elbow_roll_link
   m_TagString: Untagged
@@ -19775,6 +19848,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &745861352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745861344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &747273409
 GameObject:
   m_ObjectHideFlags: 0
@@ -22646,6 +22731,7 @@ GameObject:
   - component: {fileID: 860127056}
   - component: {fileID: 860127055}
   - component: {fileID: 860127054}
+  - component: {fileID: 860127059}
   m_Layer: 9
   m_Name: right_end_roll_link
   m_TagString: Untagged
@@ -22782,6 +22868,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &860127059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860127051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &861320849
 GameObject:
   m_ObjectHideFlags: 0
@@ -27509,6 +27607,7 @@ GameObject:
   - component: {fileID: 1032146712}
   - component: {fileID: 1032146711}
   - component: {fileID: 1032146710}
+  - component: {fileID: 1032146715}
   m_Layer: 9
   m_Name: right_wrist_roll_link
   m_TagString: Untagged
@@ -27645,6 +27744,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1032146715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032146707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1035473793
 GameObject:
   m_ObjectHideFlags: 0
@@ -34689,6 +34800,7 @@ GameObject:
   - component: {fileID: 1260645611}
   - component: {fileID: 1260645610}
   - component: {fileID: 1260645609}
+  - component: {fileID: 1260645614}
   m_Layer: 9
   m_Name: right_wrist_lift_link
   m_TagString: Untagged
@@ -34824,6 +34936,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1260645614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260645606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1261916200
 GameObject:
   m_ObjectHideFlags: 0
@@ -35472,6 +35596,7 @@ GameObject:
   - component: {fileID: 1275118344}
   - component: {fileID: 1275118343}
   - component: {fileID: 1275118342}
+  - component: {fileID: 1275118348}
   m_Layer: 9
   m_Name: left_gripper_link
   m_TagString: Untagged
@@ -35606,6 +35731,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1275118348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275118340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1276437635
 GameObject:
   m_ObjectHideFlags: 0
@@ -37732,6 +37869,7 @@ GameObject:
   - component: {fileID: 1354339164}
   - component: {fileID: 1354339163}
   - component: {fileID: 1354339162}
+  - component: {fileID: 1354339167}
   m_Layer: 9
   m_Name: left_elbow_roll_link
   m_TagString: Untagged
@@ -37868,6 +38006,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1354339167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354339159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1371184084
 GameObject:
   m_ObjectHideFlags: 0
@@ -38354,7 +38504,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 120824263}
   - {fileID: 1517159146}
   m_Father: {fileID: 2041611885}
   m_RootOrder: 0
@@ -39132,6 +39281,7 @@ GameObject:
   - component: {fileID: 1421524406}
   - component: {fileID: 1421524405}
   - component: {fileID: 1421524404}
+  - component: {fileID: 1421524409}
   m_Layer: 9
   m_Name: left_elbow_lift_link
   m_TagString: Untagged
@@ -39267,6 +39417,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1421524409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421524401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1422483721
 GameObject:
   m_ObjectHideFlags: 0
@@ -41284,7 +41446,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1386080421}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1517159147
 SphereCollider:
@@ -43398,6 +43560,7 @@ GameObject:
   - component: {fileID: 1618889518}
   - component: {fileID: 1618889517}
   - component: {fileID: 1618889516}
+  - component: {fileID: 1618889521}
   m_Layer: 9
   m_Name: right_shoulder_roll_link
   m_TagString: Untagged
@@ -43534,6 +43697,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1618889521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618889513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1619870871
 GameObject:
   m_ObjectHideFlags: 0
@@ -44935,6 +45110,7 @@ GameObject:
   - component: {fileID: 1675394706}
   - component: {fileID: 1675394705}
   - component: {fileID: 1675394704}
+  - component: {fileID: 1675394709}
   m_Layer: 9
   m_Name: left_shoulder_lift_link
   m_TagString: Untagged
@@ -45070,6 +45246,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1675394709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675394701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1681493748
 GameObject:
   m_ObjectHideFlags: 0
@@ -46244,6 +46432,7 @@ GameObject:
   - component: {fileID: 1721669123}
   - component: {fileID: 1721669122}
   - component: {fileID: 1721669121}
+  - component: {fileID: 1721669127}
   m_Layer: 9
   m_Name: right_gripper_link
   m_TagString: Untagged
@@ -46378,6 +46567,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1721669127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721669119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1725260093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4367948523128726, guid: 1f9177e898d10bd4796eb4685a9cacba,
@@ -47508,6 +47709,7 @@ GameObject:
   - component: {fileID: 1780767222}
   - component: {fileID: 1780767221}
   - component: {fileID: 1780767220}
+  - component: {fileID: 1780767225}
   m_Layer: 9
   m_Name: left_wrist_roll_link
   m_TagString: Untagged
@@ -47644,6 +47846,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1780767225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780767217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789945105
 GameObject:
   m_ObjectHideFlags: 0
@@ -49267,6 +49481,7 @@ GameObject:
   - component: {fileID: 1847224689}
   - component: {fileID: 1847224688}
   - component: {fileID: 1847224687}
+  - component: {fileID: 1847224692}
   m_Layer: 9
   m_Name: left_shoulder_roll_link
   m_TagString: Untagged
@@ -49403,6 +49618,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1847224692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847224684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1847784303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1962598801314944, guid: 70920eafc9df8db47ac578a5c3eb84a9,
@@ -51145,6 +51372,7 @@ GameObject:
   - component: {fileID: 1938491555}
   - component: {fileID: 1938491554}
   - component: {fileID: 1938491553}
+  - component: {fileID: 1938491558}
   m_Layer: 9
   m_Name: left_end_roll_link
   m_TagString: Untagged
@@ -51281,6 +51509,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBaseLink: 0
+--- !u!114 &1938491558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938491550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec95d463d3b5794e8e0107fc6647fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1939799493
 GameObject:
   m_ObjectHideFlags: 0
@@ -53878,6 +54118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left_baselink: {fileID: 1386080420}
   right_baselink: {fileID: 1628753619}
+  leftWrist: {fileID: 0}
+  rightWrist: {fileID: 0}
   left_clutch: {fileID: 120824262}
   right_clutch: {fileID: 295809671}
 --- !u!1 &2041756920
@@ -54655,6 +54897,8 @@ MonoBehaviour:
   menu: {fileID: 595801039}
   blueUrdf: {fileID: 1768333968}
   rightGripper: {fileID: 295809671}
+  leftGripper: {fileID: 120824262}
+  leftWrist: {fileID: 0}
   leftHandInputs: {fileID: 307396280}
   rightHandInputs: {fileID: 14837807}
 --- !u!224 &2072980711

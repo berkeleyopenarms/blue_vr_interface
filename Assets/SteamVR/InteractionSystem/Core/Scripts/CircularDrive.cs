@@ -250,6 +250,7 @@ namespace Valve.VR.InteractionSystem
                 grabbedWithType = startingGrabType;
                 // Trigger was just pressed
                 lastHandProjected = ComputeToTransformProjected( hand.hoverSphereTransform );
+                // TODO Z: Need to move triggers to controller
 
 				if ( hoverLock )
 				{

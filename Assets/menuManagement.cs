@@ -15,6 +15,9 @@ public class menuManagement : MonoBehaviour {
     public GameObject menu;
     public GameObject blueUrdf;
     public GameObject rightGripper;
+    public GameObject leftGripper;
+
+    public GameObject leftWrist;
 
     public blueInputSystem leftHandInputs;
     public blueInputSystem rightHandInputs;
@@ -22,12 +25,14 @@ public class menuManagement : MonoBehaviour {
     private Vector3 offset;
     private int frameStore;
     private bool summon;
+    private bool initialize;
 
 	// Use this for initialization
 	void Start () {
         offset = new Vector3(0.3f, 0.7f, 0.0f);
         frameStore = Time.frameCount;
         summon = false;
+        initialize = false;
     }
 	
 	// Update is called once per frame
@@ -35,10 +40,14 @@ public class menuManagement : MonoBehaviour {
         //Debug.Log(leftHandInputs.getGrip());
         //Debug.Log(rightHandInputs.getGrip());
 
-        if (leftHandInputs.getGrip() && (Time.frameCount - frameStore) > 30)
+        //if (leftHandInputs.getGrip() && (Time.frameCount - frameStore) > 30)
+        if (leftHandInputs.getGrip())
         {
+            /**
             menu.active = !menu.active;
             frameStore = Time.frameCount;
+            */
+            summonLeftClutch();
         }
 
         if (rightHandInputs.getGrip())
@@ -68,16 +77,59 @@ public class menuManagement : MonoBehaviour {
 
         if (summon == false)
         {
-            float x = rightHandInputs.getControllerPosition().x;
-            float y = rightHandInputs.getControllerPosition().y;
-            float z = rightHandInputs.getControllerPosition().z;
-            Vector3 controllerPos = new Vector3(x, y, z);
-            Debug.Log(controllerPos);
-            rightGripper.transform.position = controllerPos;
+            Vector3 controllerPos = new Vector3((float)rightHandInputs.getControllerPosition().x,
+                                                (float)rightHandInputs.getControllerPosition().y,
+                                                (float)rightHandInputs.getControllerPosition().z);
+            //new Vector3((float)rightHandInputs.getControllerPosition().x + 0.3f, (float)rightHandInputs.getControllerPosition().y + 0.1630991f, (float)rightHandInputs.getControllerPosition().z - 1.3534097f);
+            Debug.Log(controllerPos.ToString("F6"));
+            centerClutchUnderPlayer();
+            /**
+            rightGripper.transform.position = new Vector3((float)rightHandInputs.getControllerPosition().x + 0.1f,
+                                                (float)rightHandInputs.getControllerPosition().y + .3f,
+                                                (float)rightHandInputs.getControllerPosition().z - 0.8f);
+    */
+            rightGripper.transform.position = new Vector3((float)rightHandInputs.getControllerPosition().x,
+                                                (float)rightHandInputs.getControllerPosition().y + 0.3f,
+                                                (float)rightHandInputs.getControllerPosition().z - 0.95f);
             summon = true;
         } else
         {
             summon = false;
+        }
+    }
+
+    public void summonLeftClutch()
+    {
+        if (!initialize)
+        {
+            initialize = true;
+            leftGripper.transform.localPosition = leftWrist.transform.localPosition;
+        }
+        
+        else
+        {
+            initialize = false;
+            //StartCoroutine(;
+            /**
+            Vector3 controllerPos = new Vector3((float)leftHandInputs.getControllerPosition().x,
+                                                    (float)leftHandInputs.getControllerPosition().y,
+                                                    (float)leftHandInputs.getControllerPosition().z);
+            centerClutchUnderPlayer();
+            //new Vector3((float)rightHandInputs.getControllerPosition().x + 0.3f, (float)rightHandInputs.getControllerPosition().y + 0.1630991f, (float)rightHandInputs.getControllerPosition().z - 1.3534097f);
+            Debug.Log(controllerPos.ToString("F6"));
+            
+            rightGripper.transform.position = new Vector3((float)rightHandInputs.getControllerPosition().x + 0.1f,
+                                                (float)rightHandInputs.getControllerPosition().y + .3f,
+                                                (float)rightHandInputs.getControllerPosition().z - 0.8f);
+
+            
+
+            leftGripper.transform.position = new Vector3((float)leftHandInputs.getControllerPosition().x - 0,
+                                                (float)leftHandInputs.getControllerPosition().y + 0.3f,
+                                                (float)leftHandInputs.getControllerPosition().z - 0.95f);
+            leftGripper.transform.rotation = leftHandInputs.getControllerRotation();
+            initialize = false;
+            */
         }
     }
 

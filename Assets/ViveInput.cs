@@ -25,7 +25,7 @@ public class ViveInput : MonoBehaviour
             print("grab pinch up");
         }
         */
-        /*
+        
         bool triggerValue = squeezeAction.GetStateDown(SteamVR_Input_Sources.Any);
 
         if (triggerValue)
@@ -34,7 +34,7 @@ public class ViveInput : MonoBehaviour
             print("triggered");
 
         }
-
+        /*
         Vector2 touchPadValue = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
 
         if (touchPadValue != Vector2.zero)
