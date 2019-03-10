@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
@@ -27,16 +28,21 @@ public class menuManagement : MonoBehaviour {
     private bool summon;
     private bool initialize;
 
-	// Use this for initialization
-	void Start () {
+    Vector3 pos;
+
+
+    // Use this for initialization
+    void Start () {
         offset = new Vector3(0.3f, 0.7f, 0.0f);
         frameStore = Time.frameCount;
         summon = false;
         initialize = false;
+        pos = leftHandInputs.getControllerPosition();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
+        
         //Debug.Log(leftHandInputs.getGrip());
         //Debug.Log(rightHandInputs.getGrip());
 
@@ -48,6 +54,15 @@ public class menuManagement : MonoBehaviour {
             frameStore = Time.frameCount;
             */
             summonLeftClutch();
+            pos = leftHandInputs.getControllerPosition();
+        }
+
+        if (leftHandInputs.getTouchPad())
+        {
+            if (Math.Abs(leftHandInputs.getControllerPosition().magnitude - pos.magnitude)  > 0.2f)
+            {
+                Debug.Log("here");
+            }
         }
 
         if (rightHandInputs.getGrip())
@@ -100,36 +115,23 @@ public class menuManagement : MonoBehaviour {
 
     public void summonLeftClutch()
     {
-        if (!initialize)
+        if (initialize == false)
         {
             initialize = true;
             leftGripper.transform.localPosition = leftWrist.transform.localPosition;
+            leftGripper.transform.rotation = leftHandInputs.getControllerRotation();
+            leftHandInputs.getTouchPad();
         }
         
         else
         {
-            initialize = false;
-            //StartCoroutine(;
-            /**
-            Vector3 controllerPos = new Vector3((float)leftHandInputs.getControllerPosition().x,
-                                                    (float)leftHandInputs.getControllerPosition().y,
-                                                    (float)leftHandInputs.getControllerPosition().z);
+            //initialize = false;
             centerClutchUnderPlayer();
-            //new Vector3((float)rightHandInputs.getControllerPosition().x + 0.3f, (float)rightHandInputs.getControllerPosition().y + 0.1630991f, (float)rightHandInputs.getControllerPosition().z - 1.3534097f);
-            Debug.Log(controllerPos.ToString("F6"));
-            
-            rightGripper.transform.position = new Vector3((float)rightHandInputs.getControllerPosition().x + 0.1f,
-                                                (float)rightHandInputs.getControllerPosition().y + .3f,
-                                                (float)rightHandInputs.getControllerPosition().z - 0.8f);
-
-            
-
+            leftGripper.transform.rotation = leftHandInputs.getControllerRotation();
             leftGripper.transform.position = new Vector3((float)leftHandInputs.getControllerPosition().x - 0,
                                                 (float)leftHandInputs.getControllerPosition().y + 0.3f,
                                                 (float)leftHandInputs.getControllerPosition().z - 0.95f);
-            leftGripper.transform.rotation = leftHandInputs.getControllerRotation();
-            initialize = false;
-            */
+
         }
     }
 
