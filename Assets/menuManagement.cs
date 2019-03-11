@@ -28,7 +28,11 @@ public class menuManagement : MonoBehaviour {
     private bool summon;
     private bool initialize;
 
-    Vector3 pos;
+    private bool leftTriggerState;
+    private bool leftTriggerPrev;
+
+    private bool rightTriggerState;
+    private bool rightTriggerPrev;
 
 
     // Use this for initialization
@@ -37,32 +41,26 @@ public class menuManagement : MonoBehaviour {
         frameStore = Time.frameCount;
         summon = false;
         initialize = false;
-        pos = leftHandInputs.getControllerPosition();
+        leftTriggerState = false;
+        leftTriggerPrev = false;
+
+        rightTriggerState = false;
+        rightTriggerPrev = false;
     }
 
     // Update is called once per frame
     void Update () {
-        
-        //Debug.Log(leftHandInputs.getGrip());
-        //Debug.Log(rightHandInputs.getGrip());
 
-        //if (leftHandInputs.getGrip() && (Time.frameCount - frameStore) > 30)
-        if (leftHandInputs.getGrip())
+        leftTriggerPrev = leftTriggerState;
+        leftTriggerState = leftHandInputs.getTouchPad_Down();
+
+        rightTriggerPrev = rightTriggerState;
+        rightTriggerState = rightHandInputs.getGrip();
+
+        if (!leftTriggerPrev && leftTriggerState)
         {
-            /**
-            menu.active = !menu.active;
-            frameStore = Time.frameCount;
-            */
+            Debug.Log("wut");
             summonLeftClutch();
-            pos = leftHandInputs.getControllerPosition();
-        }
-
-        if (leftHandInputs.getTouchPad())
-        {
-            if (Math.Abs(leftHandInputs.getControllerPosition().magnitude - pos.magnitude)  > 0.2f)
-            {
-                Debug.Log("here");
-            }
         }
 
         if (rightHandInputs.getGrip())
@@ -118,9 +116,9 @@ public class menuManagement : MonoBehaviour {
         if (initialize == false)
         {
             initialize = true;
-            leftGripper.transform.localPosition = leftWrist.transform.localPosition;
-            leftGripper.transform.rotation = leftHandInputs.getControllerRotation();
-            leftHandInputs.getTouchPad();
+            Vector3 initialRotation = leftWrist.transform.eulerAngles;
+            leftGripper.transform.eulerAngles = new Vector3(initialRotation.x, initialRotation.y, initialRotation.z);      
+            leftGripper.transform.position = leftWrist.transform.position;
         }
         
         else
@@ -128,9 +126,15 @@ public class menuManagement : MonoBehaviour {
             //initialize = false;
             centerClutchUnderPlayer();
             leftGripper.transform.rotation = leftHandInputs.getControllerRotation();
+
             leftGripper.transform.position = new Vector3((float)leftHandInputs.getControllerPosition().x - 0,
                                                 (float)leftHandInputs.getControllerPosition().y + 0.3f,
                                                 (float)leftHandInputs.getControllerPosition().z - 0.95f);
+
+            Vector3 rotation = leftGripper.transform.rotation.eulerAngles;
+
+            rotation = new Vector3(rotation.x, rotation.y += 180, rotation.z);
+            leftGripper.transform.eulerAngles = rotation;
 
         }
     }
