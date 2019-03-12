@@ -18,8 +18,11 @@ public class menuManagement : MonoBehaviour {
     public GameObject rightGripper;
     public GameObject leftGripper;
 
+    // Roll link elements of URDF
     public GameObject leftWrist;
+    public GameObject rightWrist;
 
+    // Get controller inputs
     public blueInputSystem leftHandInputs;
     public blueInputSystem rightHandInputs;
 
@@ -28,6 +31,8 @@ public class menuManagement : MonoBehaviour {
     private bool summon;
     private bool initialize;
 
+
+    // Grip states to prevent to ensure summon called once
     private bool leftTriggerState;
     private bool leftTriggerPrev;
 
@@ -60,14 +65,15 @@ public class menuManagement : MonoBehaviour {
         if (!leftTriggerPrev && leftTriggerState)
         {
             Debug.Log("wut");
-            summonLeftClutch();
+            reInitialize();
         }
-
-        if (rightHandInputs.getGrip())
+        /**
+        if (!rightTriggerPrev && rightTriggerState)
         {
             Debug.Log("Here!");
             summonRightClutch();
         }
+        */
     }
 
     // Set the global transform of the clutch to be the transform of the player plus a fixed transform
@@ -83,62 +89,92 @@ public class menuManagement : MonoBehaviour {
     }
 
 
-    public void summonRightClutch()
-    {
-        //Check to make sure that proper function is called
-        Debug.Log("Summoning Right Clutch");
-
-        if (summon == false)
-        {
-            Vector3 controllerPos = new Vector3((float)rightHandInputs.getControllerPosition().x,
-                                                (float)rightHandInputs.getControllerPosition().y,
-                                                (float)rightHandInputs.getControllerPosition().z);
-            //new Vector3((float)rightHandInputs.getControllerPosition().x + 0.3f, (float)rightHandInputs.getControllerPosition().y + 0.1630991f, (float)rightHandInputs.getControllerPosition().z - 1.3534097f);
-            Debug.Log(controllerPos.ToString("F6"));
-            centerClutchUnderPlayer();
-            /**
-            rightGripper.transform.position = new Vector3((float)rightHandInputs.getControllerPosition().x + 0.1f,
-                                                (float)rightHandInputs.getControllerPosition().y + .3f,
-                                                (float)rightHandInputs.getControllerPosition().z - 0.8f);
-    */
-            rightGripper.transform.position = new Vector3((float)rightHandInputs.getControllerPosition().x,
-                                                (float)rightHandInputs.getControllerPosition().y + 0.3f,
-                                                (float)rightHandInputs.getControllerPosition().z - 0.95f);
-            summon = true;
-        } else
-        {
-            summon = false;
-        }
-    }
-
-    public void summonLeftClutch()
+    public void reInitialize()
     {
         if (initialize == false)
         {
-            initialize = true;
-            Vector3 initialRotation = leftWrist.transform.eulerAngles;
-            leftGripper.transform.eulerAngles = new Vector3(initialRotation.x, initialRotation.y, initialRotation.z);      
+            toggleUrdf();
+
+            Vector3 initialRotationL = leftWrist.transform.eulerAngles;
+            leftGripper.transform.eulerAngles = new Vector3(initialRotationL.x + 180, initialRotationL.y, initialRotationL.z + 80);
             leftGripper.transform.position = leftWrist.transform.position;
+
+
+            Vector3 initialRotationR = rightWrist.transform.eulerAngles;
+            rightGripper.transform.eulerAngles = new Vector3(initialRotationR.x - 180, initialRotationR.y, initialRotationR.z - 80);
+            rightGripper.transform.position = rightWrist.transform.position;
+
+
+            initialize = true;
+            toggleUrdf();
+        } else
+        {
+            centerClutchUnderPlayer();
+            initialize = false;
+        }
+    }
+
+    public void summonClutch()
+    {
+        // Allow robot to start from any position
+        if (initialize == false)
+        {
+            toggleUrdf();
+            
+            Vector3 initialRotationL = leftWrist.transform.eulerAngles;
+            leftGripper.transform.eulerAngles = new Vector3(initialRotationL.x + 180, initialRotationL.y, initialRotationL.z + 80);      
+            leftGripper.transform.position = leftWrist.transform.position;
+
+
+            Vector3 initialRotationR = rightWrist.transform.eulerAngles;
+            rightGripper.transform.eulerAngles = new Vector3(initialRotationR.x - 180, initialRotationR.y, initialRotationR.z - 80);
+            rightGripper.transform.position = rightWrist.transform.position;
+
+
+            initialize = true;
+            toggleUrdf();
         }
         
         else
         {
-            //initialize = false;
+            // Toggle real time feedback
+            toggleUrdf();
+
             centerClutchUnderPlayer();
+
             leftGripper.transform.rotation = leftHandInputs.getControllerRotation();
+            Vector3 rotation = leftGripper.transform.rotation.eulerAngles;
 
-            leftGripper.transform.position = new Vector3((float)leftHandInputs.getControllerPosition().x - 0,
-                                                (float)leftHandInputs.getControllerPosition().y + 0.3f,
-                                                (float)leftHandInputs.getControllerPosition().z - 0.95f);
+            rotation = new Vector3(rotation.x, rotation.y + 120, rotation.z - 30);
+            leftGripper.transform.eulerAngles = rotation;
 
+            // Apply offsets due to parenting
+            leftGripper.transform.position = new Vector3((float)leftHandInputs.getControllerPosition().x,
+                                                (float)leftHandInputs.getControllerPosition().y + 0.30f,
+                                                (float)leftHandInputs.getControllerPosition().z - 1.1f);
+            /**
             Vector3 rotation = leftGripper.transform.rotation.eulerAngles;
 
             rotation = new Vector3(rotation.x, rotation.y += 180, rotation.z);
             leftGripper.transform.eulerAngles = rotation;
+            */
+            rightGripper.transform.rotation = rightHandInputs.getControllerRotation();
+            Vector3 rotation2 = rightGripper.transform.rotation.eulerAngles;
+
+            rotation2 = new Vector3(rotation2.x, rotation2.y += 180, rotation2.z);
+            rightGripper.transform.eulerAngles = rotation2;
+
+            // Apply offsets due to parenting
+            rightGripper.transform.position = new Vector3((float)rightHandInputs.getControllerPosition().x,
+                                                (float)rightHandInputs.getControllerPosition().y + 0.3f,
+                                                (float)rightHandInputs.getControllerPosition().z - 1.1f);
+    
+            toggleUrdf();
 
         }
     }
 
+    // Toggle Realt
     public void toggleUrdf()
     {
         blueUrdf.active = !blueUrdf.active;

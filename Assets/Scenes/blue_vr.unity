@@ -54918,6 +54918,7 @@ MonoBehaviour:
   rightGripper: {fileID: 295809671}
   leftGripper: {fileID: 120824262}
   leftWrist: {fileID: 1938491550}
+  rightWrist: {fileID: 860127051}
   leftHandInputs: {fileID: 307396280}
   rightHandInputs: {fileID: 14837807}
 --- !u!224 &2072980711
