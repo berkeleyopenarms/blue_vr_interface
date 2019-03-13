@@ -66,6 +66,7 @@ public class menuManagement : MonoBehaviour {
         {
             Debug.Log("wut");
             reInitialize();
+            //summonClutch();
         }
         /**
         if (!rightTriggerPrev && rightTriggerState)
@@ -93,7 +94,7 @@ public class menuManagement : MonoBehaviour {
     {
         if (initialize == false)
         {
-            toggleUrdf();
+            
 
             Vector3 initialRotationL = leftWrist.transform.eulerAngles;
             leftGripper.transform.eulerAngles = new Vector3(initialRotationL.x + 180, initialRotationL.y, initialRotationL.z + 80);
