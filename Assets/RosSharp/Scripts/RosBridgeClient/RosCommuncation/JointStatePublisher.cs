@@ -22,8 +22,9 @@ namespace RosSharp.RosBridgeClient
         public List<JointStateReader> JointStateReaders;
         public string FrameId = "Unity";
 
-        private Messages.Sensor.JointState message;    
-        
+        private Messages.Sensor.JointState message;
+        public menuManagement manage;
+
         protected override void Start()
         {
             base.Start();
@@ -32,7 +33,10 @@ namespace RosSharp.RosBridgeClient
 
         private void FixedUpdate()
         {
-            UpdateMessage();
+            if (manage.publishing)
+            {
+                UpdateMessage();
+            }
         }
 
         private void InitializeMessage()
@@ -50,11 +54,14 @@ namespace RosSharp.RosBridgeClient
 
         private void UpdateMessage()
         {
-            message.header.Update();
-            for (int i = 0; i < JointStateReaders.Count; i++)
-                UpdateJointState(i);
+            //if (manage.publishing)
+            {
+                message.header.Update();
+                for (int i = 0; i < JointStateReaders.Count; i++)
+                    UpdateJointState(i);
 
-            Publish(message);
+                Publish(message);
+            }
         }
 
         private void UpdateJointState(int i)

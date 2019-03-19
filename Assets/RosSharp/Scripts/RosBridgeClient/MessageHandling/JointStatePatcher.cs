@@ -22,26 +22,30 @@ namespace RosSharp.RosBridgeClient
     public class JointStatePatcher : MonoBehaviour
     {
         public UrdfRobot UrdfRobot;
+        public menuManagement manage;
 
         public void SetPublishJointStates(bool publish) 
         {
-            if (publish)
+            if (manage.publishing)
             {
-                JointStatePublisher jointStatePublisher = transform.AddComponentIfNotExists<JointStatePublisher>();
-                jointStatePublisher.JointStateReaders = new List<JointStateReader>();
-
-                foreach (UrdfJoint urdfJoint in UrdfRobot.GetComponentsInChildren<UrdfJoint>())
+                if (publish)
                 {
-                    if(urdfJoint.JointType != UrdfJoint.JointTypes.Fixed)
-                        jointStatePublisher.JointStateReaders.Add(urdfJoint.transform.AddComponentIfNotExists<JointStateReader>());
-                }
-            }
-            else
-            {
-                GetComponent<JointStatePublisher>()?.JointStateReaders.Clear();
+                    JointStatePublisher jointStatePublisher = transform.AddComponentIfNotExists<JointStatePublisher>();
+                    jointStatePublisher.JointStateReaders = new List<JointStateReader>();
 
-                foreach (JointStateReader reader in UrdfRobot.GetComponentsInChildren<JointStateReader>())
-                    reader.transform.DestroyImmediateIfExists<JointStateReader>();
+                    foreach (UrdfJoint urdfJoint in UrdfRobot.GetComponentsInChildren<UrdfJoint>())
+                    {
+                        if (urdfJoint.JointType != UrdfJoint.JointTypes.Fixed)
+                            jointStatePublisher.JointStateReaders.Add(urdfJoint.transform.AddComponentIfNotExists<JointStateReader>());
+                    }
+                }
+                else
+                {
+                    GetComponent<JointStatePublisher>()?.JointStateReaders.Clear();
+
+                    foreach (JointStateReader reader in UrdfRobot.GetComponentsInChildren<JointStateReader>())
+                        reader.transform.DestroyImmediateIfExists<JointStateReader>();
+                }
             }
         }
 

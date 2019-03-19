@@ -23,6 +23,8 @@ namespace RosSharp.RosBridgeClient
         public GameObject PublishedGameObject;
         public string FrameId; // = "Unity";
 
+        public menuManagement manager;
+
         private Messages.Geometry.PoseStamped message;
 
         private Messages.Geometry.Point geometryPoint = new Messages.Geometry.Point();
@@ -55,12 +57,14 @@ namespace RosSharp.RosBridgeClient
 
             //PublishedTransform.rotation = PublishedGameObject.transform.localRotation;
             //PublishedTransform.position = PublishedGameObject.transform.localPosition;
+            if (manager.ready)
+            {
+                message.header.Update();
+                message.pose.position = GetGeometryPoint(PublishedGameObject.transform.localPosition.Unity2Ros());
+                message.pose.orientation = GetGeometryQuaternion(PublishedGameObject.transform.localRotation.Unity2Ros());
 
-            message.header.Update();
-            message.pose.position = GetGeometryPoint(PublishedGameObject.transform.localPosition.Unity2Ros());
-            message.pose.orientation = GetGeometryQuaternion(PublishedGameObject.transform.localRotation.Unity2Ros());
-
-            Publish(message);
+                Publish(message);
+            }
         }
 
         private Messages.Geometry.Point GetGeometryPoint(Vector3 position)
