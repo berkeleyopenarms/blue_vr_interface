@@ -53,7 +53,7 @@ namespace RosSharp.RosBridgeClient
             Quaternion blue_right_init_orientation = new Quaternion(0.24684f, -0.29046f, 0.92122f, 0.077833f);
             Vector3 blue_right_init_pos = new Vector3(-0.01400f, -0.11289f, 0.0f);
 
-            blue_left_init_orientation = blue_left_init_orientation;
+            blue_left_init_orientation = blue_left_init_orientation.Ros2Unity();
             blue_right_init_orientation = blue_right_init_orientation.Ros2Unity();
 
             blue_left_init_pos = blue_left_init_pos.Ros2Unity();

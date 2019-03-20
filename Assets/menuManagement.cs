@@ -20,6 +20,9 @@ public class menuManagement : MonoBehaviour {
     public GameObject urdfLeftWrist;
     public GameObject urdfRightWrist;
 
+    public Collider myColliderL;
+    public Collider myColliderR;
+
     public blueInputSystem leftHandInputs;
     public blueInputSystem rightHandInputs;
 
@@ -56,9 +59,9 @@ public class menuManagement : MonoBehaviour {
         initialized = false;
         publishing = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         //Debug.LoHandInputs.getGrip());
         //Debug.Log(rightHandInputs.getGrip());
 
@@ -90,7 +93,6 @@ public class menuManagement : MonoBehaviour {
             }
             Debug.Log("wut");
             reInitialize();
-            //summonClutch();
         }
     }
 
@@ -128,8 +130,8 @@ public class menuManagement : MonoBehaviour {
         {
             centerClutchUnderPlayer();
             initialized = false;
-            //publishing = true;
-            //patcher.SetPublishJointStates(true);
+            publishing = true;
+            patcher.SetPublishJointStates(true);
         }
     }
 

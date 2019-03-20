@@ -33,7 +33,7 @@ namespace RosSharp.RosBridgeClient
 
         private void FixedUpdate()
         {
-            if (manage.publishing)
+            //if (manage.publishing)
             {
                 UpdateMessage();
             }

@@ -66,6 +66,7 @@
     <Compile Include="Assets\DebugMenuManager.cs" />
     <Compile Include="Assets\EndEffectorPublisher.cs" />
     <Compile Include="Assets\EndEffectorSubscriber.cs" />
+    <Compile Include="Assets\HitScript.cs" />
     <Compile Include="Assets\HTC.UnityPlugin\ColliderEvent\ColliderEventCaster.cs" />
     <Compile Include="Assets\HTC.UnityPlugin\ColliderEvent\ColliderEventData.cs" />
     <Compile Include="Assets\HTC.UnityPlugin\ColliderEvent\ColliderEventInterfaces.cs" />
