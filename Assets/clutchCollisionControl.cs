@@ -18,10 +18,13 @@ public class clutchCollisionControl : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        /**
         Debug.Log("hello");
         if(collision.gameObject.tag == "robot")
         {
             Physics.IgnoreCollision(collision.collider, myCollider);
         }
+        */
+        Physics.IgnoreCollision(collision.collider, myCollider);
     }
 }

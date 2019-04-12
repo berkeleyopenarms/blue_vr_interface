@@ -15,6 +15,7 @@ namespace RosSharp.RosBridgeClient
         public GameObject rightUrdf;
 
         public GameObject left_clutch;
+        public GameObject left_clutch_root;
         public GameObject right_clutch;
 
         public GameObject urdfLeftWrist;
@@ -86,6 +87,7 @@ namespace RosSharp.RosBridgeClient
            // Vector3 absPosition = urdfWrist.transform.position + transform.parent.transform.position;
 
             left_clutch.transform.position = urdfLeftWrist.transform.position;
+            left_clutch_root.transform.position = urdfLeftWrist.transform.position;
             right_clutch.transform.position = urdfRightWrist.transform.position;
             //left_clutch.transform.localPosition = blue_left_end_pos.Ros2Unity();
 

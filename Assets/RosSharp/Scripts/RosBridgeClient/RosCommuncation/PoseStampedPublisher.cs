@@ -57,7 +57,7 @@ namespace RosSharp.RosBridgeClient
 
             //PublishedTransform.rotation = PublishedGameObject.transform.localRotation;
             //PublishedTransform.position = PublishedGameObject.transform.localPosition;
-            if (manager.ready)
+            if (manager.initialized)
             {
                 message.header.Update();
                 message.pose.position = GetGeometryPoint(PublishedGameObject.transform.localPosition.Unity2Ros());

@@ -72,6 +72,7 @@ public class blueInputSystem : MonoBehaviour {
         SteamVR_Action_Pose[] poseActions = SteamVR_Input._default.poseActions;
         if (poseActions.Length > 0)
         {
+            //return poseActions[0].GetLocalPosition(hand.handType);
             return poseActions[0].GetLocalPosition(hand.handType);
         }
         return new Vector3(0, 0, 0);

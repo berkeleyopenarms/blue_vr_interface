@@ -26,7 +26,7 @@ namespace RosSharp.RosBridgeClient
 
         public void SetPublishJointStates(bool publish) 
         {
-            if (manage.publishing)
+            //if (manage.publishing)
             {
                 if (publish)
                 {
