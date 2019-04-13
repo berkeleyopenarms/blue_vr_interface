@@ -44,20 +44,37 @@ public class menuManagement : MonoBehaviour
     private bool rightTriggerState;
     private bool rightTriggerPrev;
 
-
     // JointStatePatcher object
     public RosSharp.RosBridgeClient.JointStatePatcher patcher;
 
     // VR camera offset
     private Vector3 offset;
-     
+    
+    // Positional left hand trackers
     private Vector3 deltaL;
     private Vector3 leftPrev;
     private Vector3 leftNext;
+    private bool resetL;
 
+    // Rotational left hand trackers
+    private Quaternion deltaLR;
+    private Quaternion leftPrevR;
+    private Quaternion leftNextR;
+    private bool rotateL;
+
+
+    // Positional left hand trackers
     private Vector3 deltaR;
     private Vector3 rightPrev;
     private Vector3 rightNext;
+    private bool resetR;
+
+    // Rotational left hand trackers
+    private Quaternion deltaRR;
+    private Quaternion rightPrevR;
+    private Quaternion rightNextR;
+    private bool rotateR;
+
 
     // Use this for initialization
     void Start()
@@ -95,33 +112,68 @@ public class menuManagement : MonoBehaviour
         leftNext = leftHandInputs.getControllerPosition();
         deltaL = leftNext - leftPrev;
 
+        // Calculate difference in rotation to be applied in servo control
+        /**
+        leftPrevR = leftNextR;
+        leftNextR = leftHandInputs.getControllerRotation();
+        deltaLR = leftNextR * Quaternion.Inverse(leftPrevR);
+        */
         rightPrev = rightNext;
         rightNext = rightHandInputs.getControllerPosition();
         deltaR = rightNext - rightPrev;
 
-
-        // Begin toggle on and off publishing Joint states
-        if (leftHandInputs.getGrip() || rightHandInputs.getGrip())
+        // Calculate difference in rotation to be applied in servo control
+        /**
+        rightPrevR = rightNextR;
+        rightNextR = rightHandInputs.getControllerRotation();
+        deltaRR = rightPrevR * Quaternion.Inverse(rightNextR);
+        */
+        if (!leftHandInputs.getGrip() && initialized)
         {
-            publishing = true;
-            patcher.SetPublishJointStates(true);
+            if (resetL)
+            {
+                left_root.transform.position = urdfLeftWrist.transform.position;
+                left_clutch.transform.position = urdfLeftWrist.transform.position;
+                rotateL = false;
+                resetL = false;
+            }
+        }
+
+        if (!rightHandInputs.getGrip() && initialized)
+        {
+            if (resetR) { 
+                right_root.transform.position = urdfRightWrist.transform.position;
+                right_clutch.transform.localPosition = urdfRightWrist.transform.localPosition;
+                rotateR = false;
+                resetR = false;
+            }
         }
 
         // Use grip to control robot
         if (leftHandInputs.getGrip())
         {
-            left_clutch.transform.rotation = leftHandInputs.getControllerRotation();
-            left_clutch.transform.position += deltaL;
+            if (rotateL)
+            {
+                //left_clutch.transform.rotation *= deltaLR;
+                left_root.transform.rotation = leftHandInputs.getControllerRotation();
+            }
+            rotateL = true;
+            left_root.transform.position += deltaL;
         }
 
         if (rightHandInputs.getGrip())
         {
-            right_clutch.transform.rotation = rightHandInputs.getControllerRotation();
-            right_clutch.transform.localPosition += deltaR;
+            if (rotateR)
+            {
+                //right_clutch.transform.rotation *= deltaRR;
+                right_root.transform.rotation = rightHandInputs.getControllerRotation();
+            }
+            rotateR = true;
+            right_root.transform.position += deltaR;
         }
 
         // Used to reposition the virtual grippers
-        if ((!leftTriggerPrev && leftTriggerState) && !initialized)
+        if ((!leftTriggerPrev && leftTriggerState))
         {
             /**
             if (firstCall == 1)
@@ -144,6 +196,9 @@ public class menuManagement : MonoBehaviour
      // Reposition the clutchable grippers to be location of the urdf object wrist links.
     public void reInitialize()
     {
+        Debug.Log("here");
+        resetL = true;
+        resetR = true;
         if (initialized == false)
         {
             //Turn off Urdf GameObject to prevent collisions
@@ -164,8 +219,10 @@ public class menuManagement : MonoBehaviour
 
 
             initialized = true;
+            toggleUrdf();
         }
     }
+
 
     // Set the global transform of the clutch to be the transform of the player plus a fixed transform
     public void centerClutchUnderPlayer()

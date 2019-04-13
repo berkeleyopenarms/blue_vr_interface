@@ -14036,7 +14036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Topic: right_arm/controller_pose
-  PublishedGameObject: {fileID: 743547847}
+  PublishedGameObject: {fileID: 543918199}
   FrameId: right_base_link
   manager: {fileID: 2072980710}
 --- !u!114 &518027293
@@ -14052,7 +14052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Topic: left_arm/controller_pose
-  PublishedGameObject: {fileID: 1493013461}
+  PublishedGameObject: {fileID: 1851457196}
   FrameId: left_base_link
   manager: {fileID: 2072980710}
 --- !u!114 &518027294
@@ -44123,6 +44123,10 @@ PrefabInstance:
       propertyPath: myCollider
       value: 
       objectReference: {fileID: 1183477448}
+    - target: {fileID: 299487065, guid: f1f2081c60bba6f40bc5d497f2c83042, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 299487071, guid: f1f2081c60bba6f40bc5d497f2c83042, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -44130,6 +44134,16 @@ PrefabInstance:
     - target: {fileID: 299487071, guid: f1f2081c60bba6f40bc5d497f2c83042, type: 3}
       propertyPath: m_CollisionDetection
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232163285691812170, guid: f1f2081c60bba6f40bc5d497f2c83042,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233441973582203351, guid: f1f2081c60bba6f40bc5d497f2c83042,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1f2081c60bba6f40bc5d497f2c83042, type: 3}
@@ -54083,7 +54097,7 @@ MonoBehaviour:
   right_baselink: {fileID: 1628753619}
   leftUrdf: {fileID: 1297954130}
   rightUrdf: {fileID: 1123508964}
-  left_clutch: {fileID: 1493013461}
+  left_clutch: {fileID: 1851457196}
   left_clutch_root: {fileID: 1851457196}
   right_clutch: {fileID: 743547847}
   urdfLeftWrist: {fileID: 1938491550}
