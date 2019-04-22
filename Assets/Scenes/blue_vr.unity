@@ -13987,6 +13987,8 @@ GameObject:
   - component: {fileID: 518027292}
   - component: {fileID: 518027295}
   - component: {fileID: 518027294}
+  - component: {fileID: 518027297}
+  - component: {fileID: 518027296}
   m_Layer: 0
   m_Name: RosConnector
   m_TagString: Untagged
@@ -14117,6 +14119,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UrdfRobot: {fileID: 1768333970}
   manage: {fileID: 2072980710}
+--- !u!114 &518027296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518027289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f8153a23bebce439f0ea143900825a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: right_arm/trigger
+  messageData: 0
+  hand: {fileID: 14837807}
+--- !u!114 &518027297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518027289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f8153a23bebce439f0ea143900825a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: left_arm/trigger
+  messageData: 0
+  hand: {fileID: 307396280}
 --- !u!1 &518070532
 GameObject:
   m_ObjectHideFlags: 0
